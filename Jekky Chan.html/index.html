@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1024, initial-scale=1.0" />
+    <title>Jackie Chan Game - Легендарный мастер боевых искусств</title>
+    <meta
+      name="description"
+      content="Динамичная 2D игра в жанре beat 'em up с Джеки Чаном в главной роли"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Экран загрузки -->
+    <div id="loading-screen" class="screen">
+      <div class="loading-content">
+        <h1>Jackie Chan Game</h1>
+        <div class="loading-bar">
+          <div id="loading-progress" class="loading-fill"></div>
+        </div>
+        <p id="loading-text">Загрузка ресурсов...</p>
+      </div>
+    </div>
+    <!-- Главное меню -->
+    <div id="main-menu" class="screen hidden">
+      <div class="menu-content">
+        <h1 class="game-title">Jackie Chan</h1>
+        <h2 class="game-subtitle">Мастер боевых искусств</h2>
+        <div class="menu-buttons">
+          <button id="start-game" class="menu-button">Начать игру</button>
+          <button id="controls" class="menu-button">Управление</button>
+          <button id="about" class="menu-button">О игре</button>
+        </div>
+      </div>
+    </div>
+    <!-- Экран управления -->
+    <div id="controls-screen" class="screen hidden">
+      <div class="controls-content">
+        <h2>Управление</h2>
+        <div class="controls-grid">
+          <div class="control-item">
+            <span class="key">A / ←</span
+            ><span class="action">Движение влево</span>
+          </div>
+          <div class="control-item">
+            <span class="key">D / →</span
+            ><span class="action">Движение вправо</span>
+          </div>
+          <div class="control-item">
+            <span class="key">W / ↑ / Пробел</span
+            ><span class="action">Прыжок</span>
+          </div>
+          <div class="control-item">
+            <span class="key">J</span><span class="action">Удар кулаком</span>
+          </div>
+          <div class="control-item">
+            <span class="key">K</span><span class="action">Удар ногой</span>
+          </div>
+          <div class="control-item">
+            <span class="key">L</span><span class="action">Пьяный кулак</span>
+          </div>
+          <div class="control-item">
+            <span class="key">U</span
+            ><span class="action">Вращение стулом</span>
+          </div>
+          <div class="control-item">
+            <span class="key">I</span><span class="action">Удар лестницей</span>
+          </div>
+          <div class="control-item">
+            <span class="key">E</span
+            ><span class="action">Подобрать оружие</span>
+          </div>
+        </div>
+        <button id="back-to-menu" class="menu-button">Назад</button>
+      </div>
+    </div>
+    <!-- Игровой экран -->
+    <div id="game-screen" class="screen hidden">
+      <div id="game-ui">
+        <div class="ui-top">
+          <div class="health-container">
+            <label>Здоровье</label>
+            <div class="bar-container">
+              <div id="health-bar" class="bar health-bar"></div>
+            </div>
+            <span id="health-text">100/100</span>
+          </div>
+          <div class="energy-container">
+            <label>Энергия</label>
+            <div class="bar-container">
+              <div id="energy-bar" class="bar energy-bar"></div>
+            </div>
+            <span id="energy-text">100/100</span>
+          </div>
+          <div class="score-container">
+            <label>Очки</label>
+            <span id="score-text">0</span>
+          </div>
+          <div class="combo-container">
+            <label>Комбо</label>
+            <span id="combo-text">0</span>
+          </div>
+        </div>
+      </div>
+      <canvas id="game-canvas" width="1024" height="576"></canvas>
+      <div id="pause-screen" class="overlay hidden">
+        <div class="pause-content">
+          <h2>Пауза</h2>
+          <div class="pause-buttons">
+            <button id="resume-game" class="menu-button">Продолжить</button>
+            <button id="restart-game" class="menu-button">Начать заново</button>
+            <button id="exit-game" class="menu-button">Выйти в меню</button>
+          </div>
+        </div>
+      </div>
+      <div id="game-over-screen" class="overlay hidden">
+        <div class="game-over-content">
+          <h2 id="game-over-title">Игра окончена</h2>
+          <div class="final-stats">
+            <p>Финальный счет: <span id="final-score">0</span></p>
+            <p>Максимальное комбо: <span id="max-combo">0</span></p>
+            <p>Побеждено врагов: <span id="enemies-defeated">0</span></p>
+          </div>
+          <div class="game-over-buttons">
+            <button id="play-again" class="menu-button">Играть снова</button>
+            <button id="back-to-main-menu" class="menu-button">
+              Главное меню
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Подключение только главного модуля -->
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
